@@ -1,0 +1,28 @@
+// ------
+// GraphX
+// ------
+
+// install scala
+sudo apt-get install scala
+scala -version
+
+// setup the project directory and touch the graphx scala file
+mkdir -p scala-project/src/main/scala
+touch scala-project/src/main/scala/graphx.scala
+
+// download sbt
+wget https://github.com/sbt/sbt/releases/download/v1.8.2/sbt-1.8.2.tgz
+tar -xf sbt-1.8.2.tgz
+vim ~/.bashrc
+export PATH=$PATH:/home/user/sbt/bin
+source ~/.bashrc
+
+// add build.sbt and package the jar
+cd scala-project
+vim build.sbt
+libraryDependencies += "org.apache.spark" %% "spark-core" % "3.3.1"
+libraryDependencies += "org.apache.spark" %% "spark-graphx" % "3.3.1"
+sbt package
+
+// submit the job
+spark-submit --class <class-name> <jar-path>
