@@ -6,12 +6,12 @@ import org.apache.spark.SparkContext
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.graphx.lib.ShortestPaths
 
-object shortestPaths {
+object shortestPathsDirected {
   def main(args: Array[String]): Unit = {
 
     // Create a Spark configuration and context
     val conf = new SparkConf()
-      .setAppName("shortestPaths")
+      .setAppName("shortestPathsDirected")
       .setMaster("spark://master:7077")
     val sc = new SparkContext(conf)
 

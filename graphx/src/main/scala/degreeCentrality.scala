@@ -4,7 +4,6 @@ import org.apache.spark.graphx._
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.graphx.lib.ShortestPaths
 
 object degreeCentrality {
     def main(args: Array[String]): Unit = {

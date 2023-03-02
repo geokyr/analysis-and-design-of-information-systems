@@ -4,7 +4,6 @@ import org.apache.spark.graphx._
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.graphx.lib.ShortestPaths
 
 object betweennessCentrality {
     def main(args: Array[String]): Unit = {
@@ -13,7 +12,7 @@ object betweennessCentrality {
         val conf = new SparkConf()
             .setAppName("betweennessCentrality")
             .setMaster("spark://master:7077")
-        val sc = new SparkContext(conf)
+        implicit val sc = new SparkContext(conf)
 
         val path = "hdfs://master:9000/user/user/data/test.txt"
 
@@ -26,7 +25,7 @@ object betweennessCentrality {
         )
 
         // Compute the betweenness centrality
-        // TODO
+        val betweennessCentrality = Betweenness.run(graph).vertices
 
         // Print the results
         println("Degree centrality:")

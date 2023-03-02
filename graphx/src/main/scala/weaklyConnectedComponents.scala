@@ -4,7 +4,6 @@ import org.apache.spark.graphx._
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.graphx.lib.ShortestPaths
 
 object weaklyConnectedComponents {
     def main(args: Array[String]): Unit = {
@@ -26,7 +25,7 @@ object weaklyConnectedComponents {
         )
 
         // Compute the weakly connected components
-        val wcc: Graph[VertexId, Double] = graph.connectedComponents()
+        val wcc: Graph[VertexId, Int] = graph.connectedComponents()
 
         // Print the results
         println("Weakly connected components:")
