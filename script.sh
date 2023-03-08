@@ -5,6 +5,7 @@ for i in {1..10}
 do
     echo "Running degreeCentrality for the $i time"
     spark-submit --class degreeCentrality target/scala-2.12/graphx_2.12-0.1.0-SNAPSHOT.jar
+done
 
 # run spark-submit --class shortestPaths target/scala-2.12/graphx_2.12-0.1.0-SNAPSHOT.jar 10 times
 for i in {1..10}
