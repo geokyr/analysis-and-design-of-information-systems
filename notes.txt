@@ -26,3 +26,8 @@ sbt package
 
 // submit the job
 spark-submit --class <class-name> <jar-path>
+
+// dataset
+wget https://snap.stanford.edu/data/web-Google.txt.gz
+gzip -d web-Google.txt.gz
+hdfs dfs -put web-Google.txt data/
