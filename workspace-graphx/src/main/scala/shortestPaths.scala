@@ -43,12 +43,12 @@ object shortestPaths {
         // Write the results to seperate files for time and data
         val timeTakenStr = s"${endTime - startTime} ms"
 
-        val times = new File("/home/user/graphx/times/shortestPaths.txt")
+        val times = new File("/home/user/workspace-graphx/times/shortestPaths.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
         bw.write(timeTakenStr + "\n")
         bw.close()
         
-        val outputs = new File("/home/user/graphx/outputs/shortestPaths.txt")
+        val outputs = new File("/home/user/workspace-graphx/outputs/shortestPaths.txt")
         val bw2 = new BufferedWriter(new FileWriter(outputs))
         bw2.write(shortestPaths.mkString("\n"))
         bw2.write("\n")

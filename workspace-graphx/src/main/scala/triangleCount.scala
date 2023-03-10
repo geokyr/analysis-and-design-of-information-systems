@@ -4,14 +4,15 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.graphx._
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
+import org.apache.spark.graphx.lib._
 import org.apache.spark.storage.StorageLevel
 
-object degreeCentrality {
+object triangleCount {
     def main(args: Array[String]): Unit = {
         
         // Create a Spark configuration and context
         val conf = new SparkConf()
-            .setAppName("degreeCentrality")
+            .setAppName("triangleCount")
             .setMaster("spark://master:7077")
         val sc = new SparkContext(conf)
 
@@ -27,22 +28,20 @@ object degreeCentrality {
 
         // Compute the degree centrality and time the operation
         val startTime = System.currentTimeMillis()
-        val degreeCentrality = graph.degrees.mapValues(d => d.toInt).collect().map{
-            case (id, deg) => s"$id $deg"
-        }
+        val triangleCount = TriangleCount.run(graph).vertices.map(_._2).reduce(_ + _) / 3
         val endTime = System.currentTimeMillis()
 
         // Write the results to seperate files for time and data
         val timeTakenStr = s"${endTime - startTime} ms"
 
-        val times = new File("/home/user/graphx/times/degreeCentrality.txt")
+        val times = new File("/home/user/workspace-graphx/times/triangleCount.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
         bw.write(timeTakenStr + "\n")
         bw.close()
         
-        val outputs = new File("/home/user/graphx/outputs/degreeCentrality.txt")
+        val outputs = new File("/home/user/workspace-graphx/outputs/triangleCount.txt")
         val bw2 = new BufferedWriter(new FileWriter(outputs))
-        bw2.write(degreeCentrality.mkString("\n"))
+        bw2.write(triangleCount.toString)
         bw2.write("\n")
         bw2.close()
 

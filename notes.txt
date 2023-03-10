@@ -21,8 +21,10 @@ source ~/.bashrc
 // add build.sbt and package the jar
 cd scala-project
 vim build.sbt
-libraryDependencies += "org.apache.spark" %% "spark-core" % "3.3.1"
-libraryDependencies += "org.apache.spark" %% "spark-graphx" % "3.3.1"
+  libraryDependencies ++= Seq(
+    "org.apache.spark" %% "spark-core" % "3.3.1",
+    "org.apache.spark" %% "spark-graphx" % "3.3.1"
+  )
 sbt package
 
 // submit the job
@@ -102,5 +104,3 @@ flink run target/<jar-name>.jar
 
 !!! USE HDFS INSTEAD OF LOCAL FILE !!!
 !!! PARALLELISM AND MEMORY CONFIG!!!
-!!! ABSOLUTE PATHS ON GRAPHX ANALYTICS, SCRIPT, PYTHON SCRIPT !!!
-!!! RENAME GRAPHX !!!
