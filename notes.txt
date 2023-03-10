@@ -102,5 +102,7 @@ change java class name
 mvn clean package
 flink run target/<jar-name>.jar
 
+stop-all.sh
+
 !!! USE HDFS INSTEAD OF LOCAL FILE !!!
 !!! PARALLELISM AND MEMORY CONFIG!!!
