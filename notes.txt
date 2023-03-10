@@ -41,7 +41,8 @@ hdfs dfs -put web-Google.txt data/
 // install flink
 wget --no-check-certificate https://dlcdn.apache.org/flink/flink-1.16.1/flink-1.16.1-bin-scala_2.12.tgz
 tar -xvf flink-1.16.1-bin-scala_2.12.tgz
-mv flink-1.16.1 flink
+mv flink-1.16.1 flink ???
+export PATH=$PATH:/home/user/flink/bin ???
 rm flink-1.16.1-bin-scala_2.12.tgz
 
 // configure flink
@@ -51,16 +52,18 @@ vim flink/conf/flink-conf.yaml
 jobmanager.rpc.address: <public-ipv4>
 jobmanager.bind-host: 0.0.0.0
 taskmanager.numberOfTaskSlots: 2
+parallelism.default: 6
 rest.address: <public-ipv4>
 rest.bind-address: 0.0.0.0
-scp -r flink slave1:~
-scp -r flink slave2:~
 
 flink ui is available on <public-ipv4>:8081
 
 // quickstart
 cp opt/flink-gelly-1.16.1.jar lib/
 flink run examples/gelly/flink-gelly-examples_2.12-1.16.1.jar --algorithm GraphMetrics --order directed --input RMatGraph --type integer --scale 20 --simplify directed --output print
+
+scp -r flink slave1:~
+scp -r flink slave2:~
 
 sudo apt install maven
 mvn archetype:generate                \

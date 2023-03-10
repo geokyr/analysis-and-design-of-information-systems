@@ -35,12 +35,12 @@ object degreeCentrality {
         // Write the results to seperate files for time and data
         val timeTakenStr = s"${endTime - startTime} ms"
 
-        val times = new File("times/degreeCentrality.txt")
+        val times = new File("/home/user/graphx/times/degreeCentrality.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
         bw.write(timeTakenStr + "\n")
         bw.close()
         
-        val outputs = new File("outputs/degreeCentrality.txt")
+        val outputs = new File("/home/user/graphx/outputs/degreeCentrality.txt")
         val bw2 = new BufferedWriter(new FileWriter(outputs))
         bw2.write(degreeCentrality.mkString("\n"))
         bw2.write("\n")

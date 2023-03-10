@@ -34,12 +34,12 @@ object triangleCount {
         // Write the results to seperate files for time and data
         val timeTakenStr = s"${endTime - startTime} ms"
 
-        val times = new File("times/triangleCount.txt")
+        val times = new File("/home/user/graphx/times/triangleCount.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
         bw.write(timeTakenStr + "\n")
         bw.close()
         
-        val outputs = new File("outputs/triangleCount.txt")
+        val outputs = new File("/home/user/graphx/outputs/triangleCount.txt")
         val bw2 = new BufferedWriter(new FileWriter(outputs))
         bw2.write(triangleCount.toString)
         bw2.write("\n")
