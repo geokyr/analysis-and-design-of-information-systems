@@ -2,17 +2,15 @@ package jar;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.io.BufferedWriter;
 import org.apache.flink.graph.*;
 import org.apache.flink.graph.library.*;
-import org.apache.flink.types.LongValue;
 import org.apache.flink.types.NullValue;
 import org.apache.flink.api.java.tuple.*;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
 
-public class degreeCentrality {
+public class triangleEnumerator {
 
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
@@ -23,25 +21,22 @@ public class degreeCentrality {
 
 		long toc = System.currentTimeMillis();
 
-		DataSet<Tuple2<Integer, LongValue>> result = graph.getDegrees();
+		DataSet<Tuple3<Integer,Integer,Integer>> result = graph.run(new TriangleEnumerator<Integer, NullValue, NullValue>());
 
-		ArrayList<Tuple2<Integer, LongValue>> degrees = new ArrayList<Tuple2<Integer, LongValue>>();
-		result.collect().forEach(degrees::add);
+		long triangles = result.count();
 
 		long tic = System.currentTimeMillis();
 
 		long totalMicros = tic-toc;
 
-		File times = new File("/home/user/workspace/times/degreeCentrality.txt");
+		File times = new File("/home/user/workspace-flink/times/triangleEnumerator.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
 		bw.write(totalMicros +" ms\n");
 		bw.close();
 
-		File outputs = new File("/home/user/workspace/outputs/degreeCentrality.txt");
+		File outputs = new File("/home/user/workspace-flink/outputs/triangleEnumerator.txt");
 		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
-		for (Tuple2<Integer, LongValue> vertex : degrees) {
-			bw2.write(vertex.f0 + " " + vertex.f1 + "\n");
-		}
+		bw2.write(triangles + "\n");
 		bw2.close();
 	}
 }

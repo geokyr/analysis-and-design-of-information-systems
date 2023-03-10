@@ -44,12 +44,12 @@ public class shortestPaths {
 
 		long totalMicros = tic-toc;
 
-		File times = new File("/home/user/workspace/times/shortestPaths.txt");
+		File times = new File("/home/user/workspace-flink/times/shortestPaths.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
 		bw.write(totalMicros +" ms\n");
 		bw.close();
 
-		File outputs = new File("/home/user/workspace/outputs/shortestPaths.txt");
+		File outputs = new File("/home/user/workspace-flink/outputs/shortestPaths.txt");
 		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
 		for (Vertex<Integer, Double> vertex : paths) {
 			bw2.write(vertex.getId() + " " + vertex.getValue() + "\n");

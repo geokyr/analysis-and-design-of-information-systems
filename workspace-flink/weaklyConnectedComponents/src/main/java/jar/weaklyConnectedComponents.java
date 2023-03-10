@@ -42,12 +42,12 @@ public class weaklyConnectedComponents {
 
 		long totalMicros = tic-toc;
 
-		File times = new File("/home/user/workspace/times/weaklyConnectedComponents.txt");
+		File times = new File("/home/user/workspace-flink/times/weaklyConnectedComponents.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
 		bw.write(totalMicros +" ms\n");
 		bw.close();
 
-		File outputs = new File("/home/user/workspace/outputs/weaklyConnectedComponents.txt");
+		File outputs = new File("/home/user/workspace-flink/outputs/weaklyConnectedComponents.txt");
 		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
 		for (Vertex<Integer, Integer> vertex : components) {
 			bw2.write(vertex.getId() + " " + vertex.getValue() + "\n");

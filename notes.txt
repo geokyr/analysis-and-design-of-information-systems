@@ -33,6 +33,7 @@ wget https://snap.stanford.edu/data/web-Google.txt.gz
 gzip -d web-Google.txt.gz
 hdfs dfs -put web-Google.txt data/
 
+// ------------------------------------------------------------------------------------------------
 
 // -----
 // Flink
@@ -41,31 +42,38 @@ hdfs dfs -put web-Google.txt data/
 // install flink
 wget --no-check-certificate https://dlcdn.apache.org/flink/flink-1.16.1/flink-1.16.1-bin-scala_2.12.tgz
 tar -xvf flink-1.16.1-bin-scala_2.12.tgz
-mv flink-1.16.1 flink ???
-export PATH=$PATH:/home/user/flink/bin ???
+mv flink-1.16.1 flink
+vim ~/.bashrc
+  export PATH=$PATH:/home/user/flink/bin
+source ~/.bashrc
 rm flink-1.16.1-bin-scala_2.12.tgz
 
 // configure flink
 vim flink/conf/masters > master
-vim flink/conf/slaves > master slave1 slave2
+vim flink/conf/workers > master slave1 slave2
 vim flink/conf/flink-conf.yaml
-jobmanager.rpc.address: <public-ipv4>
-jobmanager.bind-host: 0.0.0.0
-taskmanager.numberOfTaskSlots: 2
-parallelism.default: 6
-rest.address: <public-ipv4>
-rest.bind-address: 0.0.0.0
-
-flink ui is available on <public-ipv4>:8081
+  jobmanager.rpc.address: <public-ipv4>
+  jobmanager.bind-host: 0.0.0.0
+  taskmanager.numberOfTaskSlots: 2
+  parallelism.default: 6
+  rest.address: <public-ipv4>
+  rest.bind-address: 0.0.0.0
 
 // quickstart
+cd flink
 cp opt/flink-gelly-1.16.1.jar lib/
-flink run examples/gelly/flink-gelly-examples_2.12-1.16.1.jar --algorithm GraphMetrics --order directed --input RMatGraph --type integer --scale 20 --simplify directed --output print
 
+cd ..
 scp -r flink slave1:~
 scp -r flink slave2:~
+  vim ~/.bashrc
+    export PATH=$PATH:/home/user/flink/bin
+  source ~/.bashrc
 
-sudo apt install maven
+start-cluster.sh
+flink ui is available on <public-ipv4>:8081
+
+sudo apt install maven -y
 mvn archetype:generate                \
   -DarchetypeGroupId=org.apache.flink   \
   -DarchetypeArtifactId=flink-quickstart-java \
@@ -93,3 +101,6 @@ mvn clean package
 flink run target/<jar-name>.jar
 
 !!! USE HDFS INSTEAD OF LOCAL FILE !!!
+!!! PARALLELISM AND MEMORY CONFIG!!!
+!!! ABSOLUTE PATHS ON GRAPHX ANALYTICS, SCRIPT, PYTHON SCRIPT !!!
+!!! RENAME GRAPHX !!!
