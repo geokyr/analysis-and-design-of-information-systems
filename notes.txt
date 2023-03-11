@@ -111,28 +111,28 @@ source ~/.bashrc
 add dependencies to pom.xml
 
   <dependency>
-			<groupId>org.apache.flink</groupId>
-			<artifactId>flink-hadoop-compatibility_2.12</artifactId>
-			<version>1.16.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-client</artifactId>
-			<version>3.3.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-common</artifactId>
-			<version>3.3.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-hdfs</artifactId>
-			<version>3.3.4</version>
-			<scope>provided</scope>
-		</dependency>
+    <groupId>org.apache.flink</groupId>
+    <artifactId>flink-hadoop-compatibility_2.12</artifactId>
+    <version>1.16.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-client</artifactId>
+    <version>3.3.4</version>
+    <scope>provided</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-common</artifactId>
+    <version>3.3.4</version>
+    <scope>provided</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs</artifactId>
+    <version>3.3.4</version>
+    <scope>provided</scope>
+  </dependency>
 
 !!! USE HDFS INSTEAD OF LOCAL FILE !!!
 !!! PARALLELISM AND MEMORY CONFIG!!!
