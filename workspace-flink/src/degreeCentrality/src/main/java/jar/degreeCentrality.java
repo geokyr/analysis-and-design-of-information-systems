@@ -18,7 +18,7 @@ public class degreeCentrality {
     public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-		String edgeListFilePath = "/home/user/data/flink.txt";
+		String edgeListFilePath = "/home/user/data/web-Google.csv";
 
 		Graph<Integer, NullValue, NullValue> graph = Graph.fromCsvReader(edgeListFilePath, env).keyType(Integer.class);
 

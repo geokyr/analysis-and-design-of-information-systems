@@ -16,7 +16,7 @@ object triangleCount {
             .setMaster("spark://master:7077")
         val sc = new SparkContext(conf)
 
-        val path = "hdfs://master:9000/user/user/data/web-Google.txt"
+        val path = "file:///home/user/data/web-Google.txt"
 
         // Load the edges as a graph
         val graph: Graph[Int, Int] = GraphLoader.edgeListFile(

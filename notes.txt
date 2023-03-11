@@ -56,10 +56,15 @@ vim flink/conf/workers > master slave1 slave2
 vim flink/conf/flink-conf.yaml
   jobmanager.rpc.address: <public-ipv4>
   jobmanager.bind-host: 0.0.0.0
+  jobmanager.memory.process.size: 2000m
+  taskmanager.bind-host: 0.0.0.0
+  taskmanager.host: {master,slave1,slave2}
+  taskmanager.memory.process.size: 5500m
   taskmanager.numberOfTaskSlots: 2
   parallelism.default: 6
   rest.address: <public-ipv4>
   rest.bind-address: 0.0.0.0
+  akka.framesize: "104857600b"
 
 // quickstart
 cd flink
@@ -68,9 +73,7 @@ cp opt/flink-gelly-1.16.1.jar lib/
 cd ..
 scp -r flink slave1:~
 scp -r flink slave2:~
-  vim ~/.bashrc
-    export PATH=$PATH:/home/user/flink/bin
-  source ~/.bashrc
+change taskmanager.host
 
 start-cluster.sh
 flink ui is available on <public-ipv4>:8081
@@ -86,6 +89,8 @@ mvn archetype:generate                \
   1.0
   jar
 
+change name on pom.xml
+change mainClass on pom.xml
 add gelly dependency on pom.xml
 
   <dependency>
@@ -94,45 +99,10 @@ add gelly dependency on pom.xml
       <version>1.16.0</version>
   </dependency>
 
-change name on pom.xml
-change mainClass on pom.xml
-rename java file 
+rename java file
 change java class name
-
-mvn clean package
-flink run target/<jar-name>.jar
 
 stop-all.sh
 
-vim ~/.bashrc
-  export HADOOP_CLASSPATH=`hadoop classpath`
-source ~/.bashrc
-
-add dependencies to pom.xml
-
-  <dependency>
-    <groupId>org.apache.flink</groupId>
-    <artifactId>flink-hadoop-compatibility_2.12</artifactId>
-    <version>1.16.0</version>
-  </dependency>
-  <dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-client</artifactId>
-    <version>3.3.4</version>
-    <scope>provided</scope>
-  </dependency>
-  <dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-common</artifactId>
-    <version>3.3.4</version>
-    <scope>provided</scope>
-  </dependency>
-  <dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-hdfs</artifactId>
-    <version>3.3.4</version>
-    <scope>provided</scope>
-  </dependency>
-
-!!! USE HDFS INSTEAD OF LOCAL FILE !!!
-!!! PARALLELISM AND MEMORY CONFIG!!!
+mvn clean package
+flink run target/<jar-name>.jar
