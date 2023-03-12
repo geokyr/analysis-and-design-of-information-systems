@@ -15,7 +15,6 @@ public class triangleEnumerator {
 
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-		env.setJobName("triangleEnumerator");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 

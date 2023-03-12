@@ -19,7 +19,6 @@ public class weaklyConnectedComponents {
 
 	public static void main(String[] args) throws Exception {		
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-		env.setJobName("weaklyConnectedComponents");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 

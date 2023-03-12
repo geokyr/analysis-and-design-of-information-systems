@@ -17,7 +17,6 @@ public class degreeCentrality {
 
     public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-		env.setParallelism(6);
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 

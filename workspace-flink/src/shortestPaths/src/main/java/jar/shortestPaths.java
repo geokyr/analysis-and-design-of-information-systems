@@ -19,7 +19,6 @@ public class shortestPaths {
 
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-		env.setJobName("shortestPaths");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 
