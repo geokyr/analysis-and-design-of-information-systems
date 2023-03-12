@@ -19,6 +19,7 @@ public class shortestPaths {
 
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+		env.setJobName("shortestPaths");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 
@@ -42,28 +43,17 @@ public class shortestPaths {
 			}
 		});
 
-		long toc = System.nanoTime();
-
 		SingleSourceShortestPaths<Integer, NullValue> singleSourceShortestPaths = new SingleSourceShortestPaths<>(source,iters);
 		DataSet<Vertex<Integer, Double>> result = singleSourceShortestPaths.run(weightedGraph);
 
 		ArrayList<Vertex<Integer, Double>> paths = new ArrayList<Vertex<Integer, Double>>();
 		result.collect().forEach(paths::add);
 
-		long tic = System.nanoTime();
-
-		long totalMillis = (tic-toc) / 1000000;
-
-		File times = new File("/home/user/workspace-flink/times/shortestPaths.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
-		bw.write(totalMillis + " ms\n");
-		bw.close();
-
 		File outputs = new File("/home/user/workspace-flink/outputs/shortestPaths.txt");
-		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputs));
 		for (Vertex<Integer, Double> vertex : paths) {
-			bw2.write(vertex.getId() + " " + vertex.getValue() + "\n");
+			bw.write(vertex.getId() + " " + vertex.getValue() + "\n");
 		}
-		bw2.close();
+		bw.close();
 	}
 }

@@ -19,6 +19,7 @@ public class weaklyConnectedComponents {
 
 	public static void main(String[] args) throws Exception {		
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+		env.setJobName("weaklyConnectedComponents");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 
@@ -39,29 +40,18 @@ public class weaklyConnectedComponents {
 				return value.getId();
 			}
 		});
-
-		long toc = System.nanoTime();
-
+		
 		ConnectedComponents<Integer, Integer, NullValue> connectedComponents = new ConnectedComponents<>(iters);
 		DataSet<Vertex<Integer, Integer>> result = connectedComponents.run(annotatedGraph);
 
 		ArrayList<Vertex<Integer, Integer>> components = new ArrayList<Vertex<Integer, Integer>>();
 		result.collect().forEach(components::add);
 
-		long tic = System.nanoTime();
-
-		long totalMillis = (tic-toc) / 1000000;
-
-		File times = new File("/home/user/workspace-flink/times/weaklyConnectedComponents.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
-		bw.write(totalMillis + " ms\n");
-		bw.close();
-
 		File outputs = new File("/home/user/workspace-flink/outputs/weaklyConnectedComponents.txt");
-		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputs));
 		for (Vertex<Integer, Integer> vertex : components) {
-			bw2.write(vertex.getId() + " " + vertex.getValue() + "\n");
+			bw.write(vertex.getId() + " " + vertex.getValue() + "\n");
 		}
-		bw2.close();
+		bw.close();
 	}
 }

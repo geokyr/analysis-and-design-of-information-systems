@@ -15,6 +15,7 @@ public class triangleEnumerator {
 
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+		env.setJobName("triangleEnumerator");
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 
@@ -27,24 +28,13 @@ public class triangleEnumerator {
 
 		Graph<Integer, NullValue, NullValue> graph = Graph.fromTuple2DataSet(edges, env);
 
-		long toc = System.nanoTime();
-
 		DataSet<Tuple3<Integer,Integer,Integer>> result = graph.run(new TriangleEnumerator<Integer, NullValue, NullValue>());
 
 		long triangles = result.count();
 
-		long tic = System.nanoTime();
-
-		long totalMillis = (tic-toc) / 1000000;
-
-		File times = new File("/home/user/workspace-flink/times/triangleEnumerator.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
-		bw.write(totalMillis + " ms\n");
-		bw.close();
-
 		File outputs = new File("/home/user/workspace-flink/outputs/triangleEnumerator.txt");
-		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
-		bw2.write(triangles + "\n");
-		bw2.close();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputs));
+		bw.write(triangles + "\n");
+		bw.close();
 	}
 }

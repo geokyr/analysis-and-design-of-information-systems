@@ -56,10 +56,12 @@ vim flink/conf/workers > master slave1 slave2
 vim flink/conf/flink-conf.yaml
     jobmanager.rpc.address: <public-ipv4>
     jobmanager.bind-host: 0.0.0.0
-    jobmanager.memory.process.size: 2200m
+    # jobmanager.memory.process.size: 2000m
+    jobmanager.memory.flink.size: 2000m
     taskmanager.bind-host: 0.0.0.0
     taskmanager.host: {master,slave1,slave2}
-    taskmanager.memory.process.size: 5500m
+    # taskmanager.memory.process.size: {3000m,7000m,7000m}
+    taskmanager.memory.flink.size: {3000m,7000m,7000m}
     taskmanager.numberOfTaskSlots: 2
     parallelism.default: 6
     rest.address: <public-ipv4>
@@ -74,9 +76,6 @@ cd ..
 scp -r flink slave1:~
 scp -r flink slave2:~
 change taskmanager.host
-
-stop-all.sh
-start-cluster.sh
 
 sudo apt install maven -y
 mvn archetype:generate                \
@@ -106,5 +105,13 @@ mvn clean package
 flink run target/<jar-name>.jar
 
 spark ui: 8080
+start-all.sh
+stop-all.sh
+
 hdfs ui: 9870
+start-dfs.sh
+stop-dfs.sh
+
 flink ui: 8081
+start-cluster.sh
+stop-cluster.sh

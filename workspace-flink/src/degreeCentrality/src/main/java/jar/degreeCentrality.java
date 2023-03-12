@@ -17,6 +17,7 @@ public class degreeCentrality {
 
     public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+		env.setParallelism(6);
 
 		String edgeListFilePath = "/home/user/data/web-Google.txt";
 
@@ -29,27 +30,16 @@ public class degreeCentrality {
 
 		Graph<Integer, NullValue, NullValue> graph = Graph.fromTuple2DataSet(edges, env);
 
-		long toc = System.nanoTime();
-
 		DataSet<Tuple2<Integer, LongValue>> result = graph.getDegrees();
 
 		ArrayList<Tuple2<Integer, LongValue>> degrees = new ArrayList<Tuple2<Integer, LongValue>>();
 		result.collect().forEach(degrees::add);
 
-		long tic = System.nanoTime();
-
-		long totalMillis = (tic-toc) / 1000000;
-
-		File times = new File("/home/user/workspace-flink/times/degreeCentrality.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
-		bw.write(totalMillis + " ms\n");
-		bw.close();
-
 		File outputs = new File("/home/user/workspace-flink/outputs/degreeCentrality.txt");
-		BufferedWriter bw2 = new BufferedWriter(new FileWriter(outputs));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputs));
 		for (Tuple2<Integer, LongValue> vertex : degrees) {
-			bw2.write(vertex.f0 + " " + vertex.f1 + "\n");
+			bw.write(vertex.f0 + " " + vertex.f1 + "\n");
 		}
-		bw2.close();
+		bw.close();
 	}
 }
