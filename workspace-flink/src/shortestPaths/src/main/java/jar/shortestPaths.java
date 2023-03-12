@@ -8,7 +8,9 @@ import org.apache.flink.graph.Edge;
 import org.apache.flink.graph.Graph;
 import org.apache.flink.graph.Vertex;
 import org.apache.flink.types.NullValue;
+import org.apache.flink.api.java.tuple.*;
 import org.apache.flink.api.java.DataSet;
+import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.graph.library.SingleSourceShortestPaths;
@@ -18,11 +20,19 @@ public class shortestPaths {
 	public static void main(String[] args) throws Exception {
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-		String edgeListFilePath = "/home/user/data/flink.txt";
+		String edgeListFilePath = "/home/user/data/web-Google.txt";
+
+		DataSet<Tuple2<Integer, Integer>> edges = env.readTextFile(edgeListFilePath)
+			.filter(line -> !line.startsWith("#"))
+			.map(line -> {
+				String[] tokens = line.split("\\s+");
+				return new Tuple2<Integer, Integer>(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]));
+			}).returns(Types.TUPLE(Types.INT, Types.INT));
+
+		Graph<Integer, NullValue, NullValue> graph = Graph.fromTuple2DataSet(edges, env);
+
 		int source = 0;
 		int iters = 10; // Maximum number of iterations
-
-		Graph<Integer, NullValue, NullValue> graph = Graph.fromCsvReader(edgeListFilePath, env).keyType(Integer.class);
 
 		// Adding weights to graph edges for the shortest path algorithm
 		Graph<Integer, NullValue, Double> weightedGraph = graph.mapEdges(new MapFunction<Edge<Integer, NullValue>, Double>(){
@@ -32,7 +42,7 @@ public class shortestPaths {
 			}
 		});
 
-		long toc = System.currentTimeMillis();
+		long toc = System.nanoTime();
 
 		SingleSourceShortestPaths<Integer, NullValue> singleSourceShortestPaths = new SingleSourceShortestPaths<>(source,iters);
 		DataSet<Vertex<Integer, Double>> result = singleSourceShortestPaths.run(weightedGraph);
@@ -40,13 +50,13 @@ public class shortestPaths {
 		ArrayList<Vertex<Integer, Double>> paths = new ArrayList<Vertex<Integer, Double>>();
 		result.collect().forEach(paths::add);
 
-		long tic = System.currentTimeMillis();
+		long tic = System.nanoTime();
 
-		long totalMicros = tic-toc;
+		long totalMillis = (tic-toc) / 1000000;
 
 		File times = new File("/home/user/workspace-flink/times/shortestPaths.txt");
 		BufferedWriter bw = new BufferedWriter(new FileWriter(times, true));
-		bw.write(totalMicros +" ms\n");
+		bw.write(totalMillis + " ms\n");
 		bw.close();
 
 		File outputs = new File("/home/user/workspace-flink/outputs/shortestPaths.txt");

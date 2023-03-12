@@ -30,22 +30,25 @@ object shortestPaths {
         val reversedEdges = graph.edges.map(e => Edge(e.dstId, e.srcId, e.attr))
         val reversedGraph = Graph(graph.vertices, reversedEdges)
 
-        // Compute the shortest paths and time the operation
         val sourceVertexId = 0
-        val startTime = System.currentTimeMillis()
+
+        // Compute the shortest paths and time the operation        
+        val startTime = System.nanoTime()
+
         val shortestPaths = ShortestPaths.run(reversedGraph, Seq(sourceVertexId)).vertices.map {
             case (id, spMap) => (id, spMap.getOrElse(sourceVertexId, Double.PositiveInfinity))
         }.collect().map {
             case (id, dist) => s"$id $dist"
         }
-        val endTime = System.currentTimeMillis()
 
-        // Write the results to seperate files for time and data
-        val timeTakenStr = s"${endTime - startTime} ms"
+        val endTime = System.nanoTime()
 
+        val totalMillis = (endTime - startTime) / 1000000
+
+        // Write the results to seperate files for time and output
         val times = new File("/home/user/workspace-graphx/times/shortestPaths.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
-        bw.write(timeTakenStr + "\n")
+        bw.write(totalMillis + " ms\n")
         bw.close()
         
         val outputs = new File("/home/user/workspace-graphx/outputs/shortestPaths.txt")

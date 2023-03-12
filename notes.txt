@@ -56,7 +56,7 @@ vim flink/conf/workers > master slave1 slave2
 vim flink/conf/flink-conf.yaml
   jobmanager.rpc.address: <public-ipv4>
   jobmanager.bind-host: 0.0.0.0
-  jobmanager.memory.process.size: 2000m
+  jobmanager.memory.process.size: 2200m
   taskmanager.bind-host: 0.0.0.0
   taskmanager.host: {master,slave1,slave2}
   taskmanager.memory.process.size: 5500m

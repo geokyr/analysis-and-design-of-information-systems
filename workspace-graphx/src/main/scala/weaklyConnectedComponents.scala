@@ -26,18 +26,20 @@ object weaklyConnectedComponents {
         )
 
         // Compute the weakly connected components and time the operation
-        val startTime = System.currentTimeMillis()
+        val startTime = System.nanoTime()
+
         val weaklyConnectedComponents = graph.connectedComponents().vertices.collect().map{
             case (id, comp) => s"$id $comp"
         }
-        val endTime = System.currentTimeMillis()
 
-        // Write the results to seperate files for time and data
-        val timeTakenStr = s"${endTime - startTime} ms"
+        val endTime = System.nanoTime()
 
+        val totalMillis = (endTime - startTime) / 1000000
+
+        // Write the results to seperate files for time and output
         val times = new File("/home/user/workspace-graphx/times/weaklyConnectedComponents.txt")
         val bw = new BufferedWriter(new FileWriter(times, true))
-        bw.write(timeTakenStr + "\n")
+        bw.write(totalMillis + " ms\n")
         bw.close()
         
         val outputs = new File("/home/user/workspace-graphx/outputs/weaklyConnectedComponents.txt")
