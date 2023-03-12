@@ -21,10 +21,10 @@ source ~/.bashrc
 // add build.sbt and package the jar
 cd scala-project
 vim build.sbt
-  libraryDependencies ++= Seq(
-    "org.apache.spark" %% "spark-core" % "3.3.1",
-    "org.apache.spark" %% "spark-graphx" % "3.3.1"
-  )
+    libraryDependencies ++= Seq(
+      "org.apache.spark" %% "spark-core" % "3.3.1",
+      "org.apache.spark" %% "spark-graphx" % "3.3.1"
+    )
 sbt package
 
 // submit the job
@@ -46,7 +46,7 @@ wget --no-check-certificate https://dlcdn.apache.org/flink/flink-1.16.1/flink-1.
 tar -xvf flink-1.16.1-bin-scala_2.12.tgz
 mv flink-1.16.1 flink
 vim ~/.bashrc
-  export PATH=$PATH:/home/user/flink/bin
+    export PATH=$PATH:/home/user/flink/bin
 source ~/.bashrc
 rm flink-1.16.1-bin-scala_2.12.tgz
 
@@ -54,17 +54,17 @@ rm flink-1.16.1-bin-scala_2.12.tgz
 vim flink/conf/masters > master
 vim flink/conf/workers > master slave1 slave2
 vim flink/conf/flink-conf.yaml
-  jobmanager.rpc.address: <public-ipv4>
-  jobmanager.bind-host: 0.0.0.0
-  jobmanager.memory.process.size: 2200m
-  taskmanager.bind-host: 0.0.0.0
-  taskmanager.host: {master,slave1,slave2}
-  taskmanager.memory.process.size: 5500m
-  taskmanager.numberOfTaskSlots: 2
-  parallelism.default: 6
-  rest.address: <public-ipv4>
-  rest.bind-address: 0.0.0.0
-  akka.framesize: "104857600b"
+    jobmanager.rpc.address: <public-ipv4>
+    jobmanager.bind-host: 0.0.0.0
+    jobmanager.memory.process.size: 2200m
+    taskmanager.bind-host: 0.0.0.0
+    taskmanager.host: {master,slave1,slave2}
+    taskmanager.memory.process.size: 5500m
+    taskmanager.numberOfTaskSlots: 2
+    parallelism.default: 6
+    rest.address: <public-ipv4>
+    rest.bind-address: 0.0.0.0
+    akka.framesize: "104857600b"
 
 // quickstart
 cd flink
@@ -75,8 +75,8 @@ scp -r flink slave1:~
 scp -r flink slave2:~
 change taskmanager.host
 
+stop-all.sh
 start-cluster.sh
-flink ui is available on <public-ipv4>:8081
 
 sudo apt install maven -y
 mvn archetype:generate                \
@@ -84,25 +84,27 @@ mvn archetype:generate                \
   -DarchetypeArtifactId=flink-quickstart-java \
   -DarchetypeVersion=1.16.0
 
-  adis
-  triangleEnumerator
-  1.0
-  jar
+    adis
+    triangleEnumerator
+    1.0
+    jar
 
 change name on pom.xml
 change mainClass on pom.xml
 add gelly dependency on pom.xml
 
-  <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-gelly</artifactId>
-      <version>1.16.0</version>
-  </dependency>
+    <dependency>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-gelly</artifactId>
+        <version>1.16.0</version>
+    </dependency>
 
 rename java file
 change java class name
 
-stop-all.sh
-
 mvn clean package
 flink run target/<jar-name>.jar
+
+spark ui: 8080
+hdfs ui: 9870
+flink ui: 8081
