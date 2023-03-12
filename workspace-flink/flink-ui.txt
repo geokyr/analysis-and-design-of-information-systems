@@ -1,0 +1,45 @@
+Job Name	                Start Time          Duration    End Time            Tasks	Status
+------------------------------------------------------------------------------------------------
+weaklyConnectedComponents   2023-03-12 22:40:52	36s	        2023-03-12 22:41:28	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:40:04	36s	        2023-03-12 22:40:41	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:39:16	36s	        2023-03-12 22:39:53	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:38:28	35s	        2023-03-12 22:39:04	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:37:41	35s	        2023-03-12 22:38:16	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:36:54	35s	        2023-03-12 22:37:29	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:36:04	36s	        2023-03-12 22:36:41	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:35:16	34s	        2023-03-12 22:35:51	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:34:30	36s	        2023-03-12 22:35:07	49 49	FINISHED
+weaklyConnectedComponents   2023-03-12 22:33:43	37s	        2023-03-12 22:34:21	49 49	FINISHED
+------------------------------------------------------------------------------------------------
+triangleEnumerator          2023-03-12 22:27:53	17s	        2023-03-12 22:28:10	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:27:26	19s	        2023-03-12 22:27:45	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:27:02	17s	        2023-03-12 22:27:20	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:26:38	17s	        2023-03-12 22:26:55	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:26:13	17s	        2023-03-12 22:26:31	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:25:49	17s	        2023-03-12 22:26:06	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:25:22	19s	        2023-03-12 22:25:41	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:25:01	13s	        2023-03-12 22:25:15	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:24:37	18s	        2023-03-12 22:24:56	42 42	FINISHED
+triangleEnumerator          2023-03-12 22:24:11	20s	        2023-03-12 22:24:31	42 42	FINISHED
+------------------------------------------------------------------------------------------------
+shortestPaths               2023-03-12 22:16:28	13s	        2023-03-12 22:16:41	49 49	FINISHED
+shortestPaths               2023-03-12 22:16:02	13s	        2023-03-12 22:16:16	49 49	FINISHED
+shortestPaths               2023-03-12 22:15:37	13s	        2023-03-12 22:15:51	49 49	FINISHED
+shortestPaths               2023-03-12 22:15:08	13s	        2023-03-12 22:15:22	49 49	FINISHED
+shortestPaths               2023-03-12 22:14:35	14s	        2023-03-12 22:14:49	49 49	FINISHED
+shortestPaths               2023-03-12 22:14:05	14s	        2023-03-12 22:14:19	49 49	FINISHED
+shortestPaths               2023-03-12 22:13:35	14s	        2023-03-12 22:13:49	49 49	FINISHED
+shortestPaths               2023-03-12 22:13:04	13s	        2023-03-12 22:13:18	49 49	FINISHED
+shortestPaths               2023-03-12 22:12:34	14s	        2023-03-12 22:12:48	49 49	FINISHED
+shortestPaths               2023-03-12 22:12:02	16s	        2023-03-12 22:12:19	49 49	FINISHED
+------------------------------------------------------------------------------------------------
+degreeCentrality            2023-03-12 21:59:03	11s	        2023-03-12 21:59:15	48 48	FINISHED
+degreeCentrality            2023-03-12 21:58:36	12s	        2023-03-12 21:58:48	48 48	FINISHED
+degreeCentrality            2023-03-12 21:58:10	12s	        2023-03-12 21:58:22	48 48	FINISHED
+degreeCentrality            2023-03-12 21:57:43	12s	        2023-03-12 21:57:55	48 48	FINISHED
+degreeCentrality            2023-03-12 21:57:17	12s	        2023-03-12 21:57:30	48 48	FINISHED
+degreeCentrality            2023-03-12 21:56:53	12s	        2023-03-12 21:57:06	48 48	FINISHED
+degreeCentrality            2023-03-12 21:56:27	14s	        2023-03-12 21:56:41	48 48	FINISHED
+degreeCentrality            2023-03-12 21:55:58	11s	        2023-03-12 21:56:10	48 48	FINISHED
+degreeCentrality            2023-03-12 21:55:33	12s	        2023-03-12 21:55:46	48 48	FINISHED
+degreeCentrality            2023-03-12 21:55:07	14s	        2023-03-12 21:55:21	48 48	FINISHED
