@@ -84,7 +84,7 @@ mvn archetype:generate                \
   -DarchetypeVersion=1.16.0
 
     adis
-    triangleEnumerator
+    degreeCentrality
     1.0
     jar
 

@@ -9,7 +9,7 @@ fi
 
 # Check if job name is valid
 case $2 in
-    degreeCentrality | shortestPaths | triangleEnumerator | weaklyConnectedComponents)
+    degreeCentrality | shortestPaths | triangleCount | weaklyConnectedComponents)
         ;;
     *)
         echo "Invalid job name. Allowed job names are degreeCentrality, shortestPaths, triangleCount, or weaklyConnectedComponents."
