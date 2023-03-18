@@ -417,9 +417,9 @@ In this section we discuss the results of our analysis and provide our conclusio
 
 \subsection{Results}
 
-For the Degree Centrality query, which is a rather simple one, we see that Flink beats GraphX in a comfortable margin, both in terms of \verb|real| time and \verb|user+sys| time. There is a mention worthy difference in the \verb|user+sys| time, where Flink has a significant advantage, which points to the fact that Flink is using more efficient data structures and algorithms that require less CPU time in the \verb\user| and \verb|sys| modes. However, when \verb|real| time is considered, the difference is reduced but not eliminated.
+For the Degree Centrality query, which is a rather simple one, we see that Flink beats GraphX in a comfortable margin, both in terms of \verb|real| time and \verb|user+sys| time. There is a mention worthy difference in the \verb|user+sys| time, where Flink has a significant advantage, which points to the fact that Flink is using more efficient data structures and algorithms that require less CPU time in the \verb|user| and \verb|sys| modes. However, when \verb|real| time is considered, the difference is reduced but not eliminated.
 
-For both the Shortest Paths and Triangle Count queries, it is clear that Flink is almost twice as fast as Graphx, both in terms of \verb|real| time and \verb|user+sys| time. So, in this case, Flink definitely utilizes faster algorithms and processes data more efficiently.
+For both the Shortest Paths and Triangle Count queries, it is clear that Flink is almost twice as fast as GraphX, both in terms of \verb|real| time and \verb|user+sys| time. So, in this case, Flink definitely utilizes faster algorithms and processes data more efficiently.
 
 Finally, for the Weakly Connected Components, GraphX is slightly faster on \verb|real| time, but once again Flink wins with a noticeable difference in terms of \verb|user+sys| time. This is the only query where GraphX seems to be faster than Flink and that should be due to an efficient implementation of the algorithm and the data structures used by it. However, Flink's advantage in \verb|user+sys| times suggests it may still be more efficient overall, especially in a larger and more complex graph.
 

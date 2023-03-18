@@ -13,7 +13,6 @@ configure_spark () {
 	echo "export PATH=\$PATH:\$SPARK_HOME/sbin" >> ~/.bashrc
 	echo "export PYSPARK_PYTHON=python3.8" >> ~/.bashrc
 	echo "export PYSPARK_DRIVER_PYTHON=python3.8" >> ~/.bashrc
-	echo "export PATH=\$PATH:\$SPARK_HOME/sbin" >> ~/.bashrc
 	echo "alias start-all.sh='\$SPARK_HOME/sbin/start-all.sh'" >> ~/.bashrc
 	echo "alias stop-all.sh='\$SPARK_HOME/sbin/stop-all.sh'" >> ~/.bashrc
 
