@@ -29,7 +29,7 @@ el18849@mail.ntua.gr}
 \maketitle
 
 \begin{abstract}
-The goal of this paper is to develop a system that allows for the comparison of the performance of graph processing systems. The comparison is based on the same dataset, workload, and hardware environment, and the results are validated. The system executes predefined queries on each system under test, measures the time required to complete each task, computes performance metrics for each system, and produces graphical representations of each metric for each SUT. The functions that are compared include finding the shortest path, degree centrality, triangle count, and weakly connected components. The two systems compared are Apache Spark GraphX and Apache Flink. Performance metrics include average, minimum and maximum query execution time.
+The goal of this project is to develop a system that allows for the comparison of the performance of graph processing systems. The comparison is based on the same dataset, workload, and hardware environment, and the results are validated. The system executes predefined queries on each system under test, measures the time required to complete each task, computes performance metrics for each system, and produces graphical representations of each metric for each SUT. The functions that are compared include finding the shortest path, degree centrality, triangle count, and weakly connected components. The two systems compared are Apache Spark GraphX and Apache Flink. Performance metrics include average, minimum and maximum query execution time.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -45,7 +45,7 @@ The primary objective of this project is to compare the performance of these sys
 
 To achieve this goal, we will implement a system that can execute predefined queries on each system under test, measure the time required to complete each task, compute performance metrics, and produce graphical representations of each metric for each SUT. The system will be designed to ensure that the comparison is fair, using the same dataset, workload, and hardware environment for each system under test. The results will be validated to ensure their accuracy and reliability.
 
-The rest of this paper is organized as follows:
+The rest of this report is organized as follows:
 
 \begin{itemize}
 \item Section \ref{data}: Dataset
@@ -57,7 +57,7 @@ The rest of this paper is organized as follows:
 \item Section \ref{final}: Conclusion
 \end{itemize}
 
-This paper is backed by a GitHub repository \cite{b3} \cite{b4}, which contains the source code of the system, the dataset, and the results of the comparison, as well as analytics for the outcomes.
+This project is backed by a GitHub repository \cite{b3} \cite{b4}, which contains the source code of the system, the dataset, and the results of the comparison, as well as analytics for the outcomes.
 
 \section{\textbf{Dataset}}\label{data}
 The choice of the dataset is a critical aspect of performance comparison in graph processing systems. A well-selected dataset should be representative of real-world scenarios, sufficiently large, and diverse enough to challenge the capabilities of the systems under test. In this section, we describe the dataset selected for our comparison and its characteristics.
@@ -425,9 +425,9 @@ Finally, for the Weakly Connected Components, GraphX is slightly faster on \verb
 
 \subsection{Final Comments}
 
-Based on the results presented in this paper, it can be concluded that Apache Flink outperforms Apache Spark GraphX in terms of query execution time for the majority of the graph processing queries tested. Specifically, Flink shows significant advantages in both \verb|real| and \verb|user+sys| time for the Degree Centrality, Shortest Paths, and Triangle Count queries. Although GraphX is slightly faster in \verb|real| time for the Weakly Connected Components query, Flink's advantage in \verb|user+sys| time suggests that it may still be a more efficient choice, in the cases of a more complex graph processing tasks. 
+Based on the results presented in this report, it can be concluded that Apache Flink outperforms Apache Spark GraphX in terms of query execution time for the majority of the graph processing queries tested. Specifically, Flink shows significant advantages in both \verb|real| and \verb|user+sys| time for the Degree Centrality, Shortest Paths, and Triangle Count queries. Although GraphX is slightly faster in \verb|real| time for the Weakly Connected Components query, Flink's advantage in \verb|user+sys| time suggests that it may still be a more efficient choice, in the cases of a more complex graph processing tasks. 
 
-Overall, this paper provides valuable insights into the performance differences between these two popular graph processing systems, which can aid in the selection and optimization of graph processing solutions for various applications.
+Overall, this project provides valuable insights into the performance differences between these two popular graph processing systems, which can aid in the selection and optimization of graph processing solutions for various applications.
 
 \begin{thebibliography}{00}
 \bibitem{b1} “GraphX: Apache Spark,” GraphX | Apache Spark. [Online]. Available: https://spark.apache.org/graphx/.
