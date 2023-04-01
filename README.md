@@ -144,6 +144,7 @@ After configuring Flink, we can copy the flink directory to the slave nodes, usi
 cd ~
 scp -r flink slave1:~
 scp -r flink slave2:~
+```
 
 Note: After copying the directories, the `taskmanager.host` and `taskmanager.memory.flink.size` lines on the `flink-conf.yaml` file should be changed to the hostname of the machine and the respective memory size, as shown in the comments above.
 
