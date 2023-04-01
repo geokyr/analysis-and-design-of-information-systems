@@ -128,9 +128,9 @@ jobmanager.rpc.address: <public-ipv4>
 jobmanager.bind-host: 0.0.0.0
 jobmanager.memory.flink.size: 2g
 taskmanager.bind-host: 0.0.0.0
-// change to the hostname of your machine (check note below)
+# change to the hostname of your machine (check note below)
 taskmanager.host: {master, slave1, slave2}
-// select the respective memory size (3g for master, 7g for slaves)
+# select the respective memory size (3g for master, 7g for slaves)
 taskmanager.memory.flink.size: {3g, 7g, 7g}
 taskmanager.numberOfTaskSlots: 2
 parallelism.default: 6
@@ -164,10 +164,10 @@ mvn archetype:generate \
 ```
 This creates a new maven project in the current directory and asks for the group, name, version and package of the project. We used the following values.
 ```
-Group Id: adis
-Artifact Id: {degreeCentrality, shortestPaths, triangleCount, weaklyConnectedComponents}
-Version: 1.0
-Package: jar
+groupId: adis
+artifactId: {degreeCentrality, shortestPaths, triangleCount, weaklyConnectedComponents}
+version: 1.0
+packaging: jar
 ```
 After that, we had to do the following changes:
 * Change `name` on `pom.xml` to `{Degree Centrality, Shortest Paths, Triangle Count, Weakly Connected Components}`
@@ -180,7 +180,7 @@ After that, we had to do the following changes:
     <version>1.16.0</version>
 </dependency>
 ```
-* Rename main `.java` file to `{degreeCentrality, shortestPaths, triangleCount, weaklyConnectedComponents}.java`
+* Rename main `*.java` file to `{degreeCentrality, shortestPaths, triangleCount, weaklyConnectedComponents}.java`
 * Change java main `public class` name to `{degreeCentrality, shortestPaths, triangleCount, weaklyConnectedComponents}`
 
 ### Running a Flink Job
