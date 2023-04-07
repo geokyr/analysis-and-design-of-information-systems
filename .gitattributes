@@ -1,3 +1,2 @@
-report/IEEEtran.cls linguist-vendored
-analytics/outputs.ipynb linguist-vendored
-analytics/times.ipynb linguist-vendored
+report/* linguist-vendored
+analytics/* linguist-vendored
