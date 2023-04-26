@@ -15,9 +15,9 @@ query execution time.
 
 ## Dataset
 
-For this project, we chose to use a [Google web graph dataset](http://konect.cc/networks/web-Google/), which represents the structure of the World Wide Web with nodes representing web pages and edges representing hyperlinks between them. This dataset was selected because it is challenging to process due to its size and complexity, with 875,713 nodes and 5,105,039 edges, and provides a real-world scenario to test the scalability and efficiency of the 2 graph processing systems, Apache Spark GraphX and Apache Flink. 
+For this project, we chose to use a [**Google web graph dataset**](http://konect.cc/networks/web-Google/), which represents the structure of the World Wide Web with nodes representing web pages and edges representing hyperlinks between them. This dataset was selected because it is challenging to process due to its size and complexity, with 875,713 nodes and 5,105,039 edges, and provides a real-world scenario to test the scalability and efficiency of the 2 graph processing systems, Apache Spark GraphX and Apache Flink. 
 
-We downloaded the dataset from the [Stanford Network Analysis Platform](https://snap.stanford.edu/data/web-Google.html) using the following commands.
+We downloaded the dataset from the [**Stanford Network Analysis Platform**](https://snap.stanford.edu/data/web-Google.html) using the following commands.
 
     wget https://snap.stanford.edu/data/web-Google.txt.gz
     gzip -d web-Google.txt.gz
