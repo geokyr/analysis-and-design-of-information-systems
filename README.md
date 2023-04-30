@@ -4,7 +4,7 @@ Semester Project for the [**Analysis and Design of Information Systems**](https:
 
 ## Team 24 - Members
 
-- [**Kyriakopoulos George**](https://github.com/geokyr)
+- [**Kyriakopoulos Georgios**](https://github.com/geokyr)
 - [**Tzelepis Serafeim**](https://github.com/sertze)
 
 ## Project Description
