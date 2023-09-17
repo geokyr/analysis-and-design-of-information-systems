@@ -1,17 +1,17 @@
 # ntua-information-systems
 
-Semester Project for the [**Analysis and Design of Information Systems**](https://www.ece.ntua.gr/en/undergraduate/courses/3321) course, during the 9th semester of the **School of Electrical and Computer Engineering at the National Technical University of Athens**.
+Semester Project for the [Analysis and Design of Information Systems](https://www.ece.ntua.gr/en/undergraduate/courses/3321) course, during the 9th semester of the School of Electrical and Computer Engineering at the National Technical University of Athens.
 
 ## Team 24 - Members
 
-- [**Kyriakopoulos Georgios**](https://github.com/geokyr)
-- [**Tzelepis Serafeim**](https://github.com/sertze)
+- [Kyriakopoulos Georgios](https://github.com/geokyr)
+- [Tzelepis Serafeim](https://github.com/sertze)
 
 ## Project Description
 
-The goal of this project is to develop a system that allows for the **comparison of the performance of graph processing systems**. The comparison is based on the same dataset, workload, and hardware environment, and the results are validated. The system executes predefined queries on each system under test, measures the time required to complete each task, computes performance metrics for each system, and produces graphical representations of each metric for each SUT.
+The goal of this project is to develop a system that allows for the comparison of the performance of graph processing systems. The comparison is based on the same dataset, workload, and hardware environment, and the results are validated. The system executes predefined queries on each system under test, measures the time required to complete each task, computes performance metrics for each system, and produces graphical representations of each metric for each SUT.
 
-The functions that are compared include finding the **shortest path**, **degree centrality**, **triangle count**, and **weakly connected components**. The two systems compared are [**Apache Spark GraphX**](https://spark.apache.org/graphx/) and [**Apache Flink**](https://flink.apache.org/). Performance metrics include **average, minimum and maximum query execution time**.
+The functions that are compared include finding the shortest path, degree centrality, triangle count, and weakly connected components. The two systems compared are [Apache Spark GraphX](https://spark.apache.org/graphx/) and [Apache Flink](https://flink.apache.org/). Performance metrics include average, minimum and maximum query execution time.
 
 ## Dataset
 
