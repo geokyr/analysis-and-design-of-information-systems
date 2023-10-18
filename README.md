@@ -1,4 +1,4 @@
-# ntua-information-systems
+# ece-ntua-information-systems
 
 Semester Project for the [Analysis and Design of Information Systems](https://www.ece.ntua.gr/en/undergraduate/courses/3321) course, during the 9th semester of the School of Electrical and Computer Engineering at the National Technical University of Athens.
 
